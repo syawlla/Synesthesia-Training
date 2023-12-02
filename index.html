@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Convertidor de texto en color</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style>
+    #wordcounter {
+      color: cyan;
+    }
+
+#escribir {
+  color: red;
+  width: 99%;
+  height: 8%;
+  border: 1px solid red;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px); /* Ajuste o valor conforme necessário */
+  outline: none;
+  transition: border-color 2s;
+}
+
+#escribir:focus {
+            border: 1px solid black;
+        }
+
+
+#alphabet-bar {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px); /* Ajuste o valor conforme necessário */
+
+}
+
+
+    body {
+      
+      padding: 0;
+      position: relative;
+      margin-bottom: 35%;
+      margin-right: 5px;
+    }
+
+    body::before {
+      content: "";
+      background: url('image.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.5; 
+    }
+  </style>
+
+</head>
+<body> 
+
+
+<br/> <br/> <br/>
+
+
+<div id="wordcounter">Words: 0 | Characters: 0</div>
+<script>
+    function wordcounter() {
+        var texto = document.getElementById('escribir').value;
+        var words = texto.match(/\S+/g);
+        var numwords = words ? words.length : 0;
+        var numchars = texto.length;
+        document.getElementById('wordcounter').textContent = 'Words: ' + numwords + ' | Characters: ' + numchars;
+    }
+
+    document.getElementById('escribir').addEventListener('input', wordcounter);
+</script>
+
+
+
+  <p class="centrado">
+    <textarea id="escribir"
+      name="observa"
+      class="field textarea medium"
+      spellcheck="true"  
+      onkeyup="wordcounter(); save();"
+      placeholder="Escribe aquí. (Círculo = minúscula. Cuadrado = mayúscula. Triángulo = número. Paralelogramo = tilde en mayúscula. Óvalo = tilde en minúscula)."
+
+    ></textarea>
+
+  <div id="alphabet-bar"></div>
+  
+<p><input type="file" id="fileInput"></p>
+  <div id="output"></div>
+
+  <script src="script.js"></script>
+
+  <script>
+    function save() {
+      var text_to_save = document.getElementById('escribir').value;
+      localStorage.setItem("text", text_to_save); // save the item
+    }
+    function retrieve() {
+      var text = localStorage.getItem("text"); // retrieve
+      document.getElementById('escribir').value = text; // display
+    }
+
+    // Automatically retrieve text when the page loads
+    window.addEventListener('load', retrieve);
+
+    // Automatically retrieve text on keyup
+    document.getElementById('escribir').addEventListener('keyup', retrieve);
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+#escribir {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #C0C0C0;
+  color: black;
+  z-index: 1;
+  height: 20px;
+}
+
+
+#alphabet-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  z-index: 1;
+}
+
+.block {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  display: inline-block;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid;
+    background-color: transparent;
+    display: inline-block;
+}
+
+.parallelogram {
+	width: 20px;
+	height: 20px;
+	transform: skew(20deg);
+        background: transparent;
+	display: inline-block;
+}
+
+.shape-container {
+  position: absolute;
+  top: 10px; /* Ajuste a posição superior conforme necessário */
+  left: 20px; /* Ajuste a posição à esquerda conforme necessário */
+  /* Outras propriedades de estilo para a forma */
+}
+
+.invisible-text {
+  position: absolute;
+  left: -9999px;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 5px; 
+}
+
+::-webkit-scrollbar-track {
+  background-color: #black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 0, 0, 1); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #830000;
+}
+
+
+
+.oval {
+  height: 20px;
+  width: 25px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+
