@@ -62,7 +62,7 @@ const vocalesConTilde = new Set(['Á', 'É', 'Í', 'Ó', 'Ú']);
 for (let character in colorMapping) {
     if (isNaN(parseInt(character)) && !vocalesConTilde.has(character)) { 
         // Solo para las letras del abecedario que no están en el conjunto de vocales con tilde
-        const letterDiv = `<span style="font-weight: bold; font-family: Georgia, serif; font-size: 2em; color: rgb(${colorMapping[character]});">${character}</span>`;
+        const letterDiv = `<span style="font-weight: bold; font-family: Tahoma, sans-serif; font-size: 28px; color: rgb(${colorMapping[character]});">${character}</span>`;
         alphabetBar.innerHTML += letterDiv;
     }
 }
@@ -70,7 +70,7 @@ for (let character in colorMapping) {
 // Luego, rellenar la barra con los números
 for (let character in colorMapping) {
     if (!isNaN(parseInt(character))) { // Solo para los números
-        const numberDiv = `<span style="font-weight: bold; font-family: Georgia, serif; font-size: 2em; color: rgb(${colorMapping[character]});">${character}</span>`;
+        const numberDiv = `<span style="font-weight: bold; font-family: Tahoma, sans-serif; font-size: 28px; color: rgb(${colorMapping[character]});">${character}</span>`; 
         alphabetBar.innerHTML += numberDiv;
     }
 }
