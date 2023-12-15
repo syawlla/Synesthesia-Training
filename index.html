@@ -67,9 +67,12 @@
 <script>
     function wordcounter() {
         var texto = document.getElementById('escribir').value;
-        var words = texto.match(/\S+/g);
-        var numwords = words ? words.length : 0;
-        var numchars = texto.length;
+        var textoSemEspacosEPontuacao = texto.replace(/\s+/g, '').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+ 	var textoSomenteAlfanumericos = textoSemEspacosEPontuacao.replace(/[^a-zA-Z0-9]/g, '');
+        var words = texto.split(/\s+/);
+ 	var words = texto.match(/[a-zA-Z0-9']+/g);
+        var numwords = words ? words.length : 0; 
+        var numchars = textoSomenteAlfanumericos.length;
         document.getElementById('wordcounter').textContent = 'Words: ' + numwords + ' | Characters: ' + numchars;
     }
 
